@@ -166,39 +166,26 @@ st.video(youtube_music_url, autoplay=True)
 
 st.divider()
 
-# --- GALERIA CONTINUA COM AS 26 FOTOS ---
+# --- GALERIA COM AS 50 FOTOS ---
 st.markdown("### 📸 Nossa História em Fotos")
 
 frases = [
-    "O início de tudo ❤️",
-    "Nossos momentos inesquecíveis!",
-    "Cada dia mais juntos.",
-    "Sorrisos que amo!",
-    "Mais um momento especial ao seu lado.",
-    "Te amo cada dia mais!",
-    "Parabéns para nós! ❤️",
-    "O seu abraço é o meu lugar favorito.",
-    "Com você, tudo fica mais leve.",
-    "Memórias que vou guardar para sempre.",
-    "Amo tudo em você!",
-    "O melhor presente foi te encontrar.",
-    "O meu sorriso favorito do mundo.",
-    "Que a gente continue assim, bem juntinhos.",
-    "Sempre ao seu lado ❤️",
-    "Cada detalhe seu me encanta.",
-    "Você transforma meus dias.",
-    "Amor sem fim!",
-    "Sempre com você no meu coração.",
-    "O destino acertou em cheio ao nos juntar.",
-    "Momentos simples que valem ouro.",
-    "O meu porto seguro.",
-    "Ao seu lado o tempo voa.",
-    "Minha melhor companhia.",
-    "Construindo nossa história dia após dia.",
-    "Eu te amo infinitamente! ❤️"
+    "O início de tudo ❤️", "Nossos momentos inesquecíveis!", "Cada dia mais juntos.", "Sorrisos que amo!", 
+    "Mais um momento especial ao seu lado.", "Te amo cada dia mais!", "Parabéns para nós! ❤️", "O seu abraço é o meu lugar favorito.", 
+    "Com você, tudo fica mais leve.", "Memórias que vou guardar para sempre.", "Amo tudo em você!", "O melhor presente foi te encontrar.", 
+    "O meu sorriso favorito do mundo.", "Que a gente continue assim, bem juntinhos.", "Sempre ao seu lado ❤️", "Cada detalhe seu me encanta.", 
+    "Você transforma meus dias.", "Amor sem fim!", "Sempre com você no meu coração.", "O destino acertou em cheio ao nos juntar.", 
+    "Momentos simples que valem ouro.", "O meu porto seguro.", "Ao seu lado o tempo voa.", "Minha melhor companhia.", 
+    "Construindo nossa história dia após dia.", "Eu te amo infinitamente! ❤️", "Cada segundo com você é especial.", "Meu porto seguro.", 
+    "Nossa sintonia é única.", "Lugar favorito: abraçado(a) com você.", "Você é a melhor parte do meu dia.", "Sempre nós.", 
+    "Risadas garantidas ao seu lado.", "Amor que não cabe no peito.", "Meu bem mais precioso.", "Coração acelerado só de te ver.", 
+    "Companheiro(a) de todas as horas.", "A vida é mais bonita com você.", "Nossa cumplicidade é tudo.", "Florescendo juntos.", 
+    "Te escolheria em todas as vidas.", "Tão bom viver isso com você.", "Olhar que me acalma.", "Nossas memórias favoritas.", 
+    "Você é meu lar.", "Cada detalhe seu me faz suspirar.", "Meu amor maior.", "Tudo faz sentido com você.", 
+    "Para sempre ao seu lado.", "Nosso amor é a minha história favorita! ❤️"
 ]
 
-total_fotos = 26
+total_fotos = 50
 for i in range(1, total_fotos + 1, 2):
     c1, c2 = st.columns(2)
     with c1:
@@ -233,11 +220,27 @@ Cada segundo ao seu lado fez esses 7 meses parecerem um sonho perfeito.
 Sete meses se passaram desde aquele dia que mudou tudo. Ainda me lembro do meu coração batendo forte. 
 Desde então, o tempo voou e cada dia ao seu lado virou uma aventura nova. 
 Obrigado por me fazer tão feliz e por ser essa pessoa incrível.
- Que venham muitos outros meses e anos juntos. Eu te amo!" 
- Dê o play abaixo e relembre um pouquinho de nós! ❤️
+Que venham muitos outros meses e anos juntos. I love you! 
+Dê o play abaixo e relembre um pouquinho de nós! ❤️
 """)
 
 carregar_video_final("nosso_video.mp4")
+
+# --- VÍDEOS EXTRAS NO FINAL ---
+st.markdown("---")
+st.markdown("### 🎬 Mais Momentos Especiais")
+
+st.markdown("#### 🎞️ Momento 2")
+if os.path.exists("video2.mp4"):
+    st.video("video2.mp4")
+else:
+    st.info("💡 Adicione o arquivo **'video2.mp4'** na pasta 'amor' para exibi-lo aqui.")
+
+st.markdown("#### 🎞️ Momento 3")
+if os.path.exists("video3.mp4"):
+    st.video("video3.mp4")
+else:
+    st.info("💡 Adicione o arquivo **'video3.mp4'** na pasta 'amor' para exibi-lo aqui.")
 
 st.divider()
 
