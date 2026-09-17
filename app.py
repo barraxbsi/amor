@@ -165,6 +165,14 @@ else:
 
     st.divider()
 
+    # --- MÚSICA TEMA LOGO NO TOPO ---
+    st.markdown("### 🎵 Nossa Trilha Sonora: Te Vivo - Luan Santana")
+    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
+    youtube_music_url = "https://www.youtube.com/watch?v=dWpGsK8Md28" 
+    st.video(youtube_music_url)
+
+    st.divider()
+
     # --- CONTADOR DE TEMPO ---
     data_inicio = datetime(2026, 2, 17, 19, 30) 
     agora = datetime.now()
@@ -179,13 +187,6 @@ else:
     col1.metric("Dias", f"{dias} dias")
     col2.metric("Horas", f"{horas} hrs")
     col3.metric("Minutos", f"{minutos} min")
-
-    st.divider()
-
-    # --- MÚSICA TEMA (JÁ COMEÇA TOCANDO AO ENTRAR) ---
-    st.markdown("### 🎵 Nossa Trilha Sonora: Te Vivo - Luan Santana")
-    youtube_music_url = "https://www.youtube.com/watch?v=dWpGsK8Md28" 
-    st.video(youtube_music_url, autoplay=True)
 
     st.divider()
 
