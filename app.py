@@ -220,27 +220,11 @@ Cada segundo ao seu lado fez esses 7 meses parecerem um sonho perfeito.
 Sete meses se passaram desde aquele dia que mudou tudo. Ainda me lembro do meu coração batendo forte. 
 Desde então, o tempo voou e cada dia ao seu lado virou uma aventura nova. 
 Obrigado por me fazer tão feliz e por ser essa pessoa incrível.
-Que venham muitos outros meses e anos juntos. I love you! 
+Que venham muitos outros meses e anos juntos. Eu te amo! 
 Dê o play abaixo e relembre um pouquinho de nós! ❤️
 """)
 
 carregar_video_final("nosso_video.mp4")
-
-# --- VÍDEOS EXTRAS NO FINAL ---
-st.markdown("---")
-st.markdown("### 🎬 Mais Momentos Especiais")
-
-st.markdown("#### 🎞️ Momento 2")
-if os.path.exists("video2.mp4"):
-    st.video("video2.mp4")
-else:
-    st.info("💡 Adicione o arquivo **'video2.mp4'** na pasta 'amor' para exibi-lo aqui.")
-
-st.markdown("#### 🎞️ Momento 3")
-if os.path.exists("video3.mp4"):
-    st.video("video3.mp4")
-else:
-    st.info("💡 Adicione o arquivo **'video3.mp4'** na pasta 'amor' para exibi-lo aqui.")
 
 st.divider()
 
