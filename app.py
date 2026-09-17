@@ -10,6 +10,10 @@ st.set_page_config(
     layout="centered"
 )
 
+# Controla se já entrou no site
+if 'entb' not in st.session_state:
+    st.session_state.entb = False
+
 # Função para converter imagens em base64
 def get_b64(nome_arquivo):
     extensoes = [
@@ -136,99 +140,118 @@ def carregar_video_final(nome_arquivo):
     else:
         st.info(f"💡 Para exibir seu vídeo no final, adicione o arquivo **'{nome_arquivo}'** (ou **nosso_video.mp4**) na pasta 'amor'.")
 
-# Título
-st.title("❤️ 7 Meses Juntos ❤️")
-st.subheader("O melhor capítulo da minha vida!")
 
-st.divider()
+# --- TELA INICIAL (CAPA COM BOTÃO) ---
+if not st.session_state.entb:
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    st.title("💖 Uma Surpresa Para Você 💖")
+    st.markdown("### Prepare o coração e aperte o botão abaixo para entrarmos juntos na nossa história...")
+    st.markdown("<br>", unsafe_allow_html=True)
+    
+    col_centro1, col_centro2, col_centro3 = st.columns([1, 2, 1])
+    with col_centro2:
+        if st.button("✨ Entrar no Nosso Mundinho ❤️", use_container_width=True):
+            st.session_state.entb = True
+            st.rerun()
+            
+    st.markdown("<br><br>", unsafe_allow_html=True)
 
-# --- CONTADOR DE TEMPO ---
-data_inicio = datetime(2026, 2, 17, 19, 30) 
-agora = datetime.now()
-diferenca = agora - data_inicio
+else:
+    # --- SITE COMPLETO (APÓS CLICAR NO BOTÃO) ---
+    
+    # Título
+    st.title("❤️ 7 Meses Juntos ❤️")
+    st.subheader("O melhor capítulo da minha vida!")
 
-dias = diferenca.days
-horas = diferenca.seconds // 3600
-minutos = (diferenca.seconds % 3600) // 60
+    st.divider()
 
-st.markdown("### ⏳ Contador do Nosso Amor")
-col1, col2, col3 = st.columns(3)
-col1.metric("Dias", f"{dias} dias")
-col2.metric("Horas", f"{horas} hrs")
-col3.metric("Minutos", f"{minutos} min")
+    # --- CONTADOR DE TEMPO ---
+    data_inicio = datetime(2026, 2, 17, 19, 30) 
+    agora = datetime.now()
+    diferenca = agora - data_inicio
 
-st.divider()
+    dias = diferenca.days
+    horas = diferenca.seconds // 3600
+    minutos = (diferenca.seconds % 3600) // 60
 
-# --- MÚSICA TEMA ---
-st.markdown("### 🎵 Nossa Trilha Sonora: Te Vivo - Luan Santana")
-youtube_music_url = "https://www.youtube.com/watch?v=dWpGsK8Md28" 
-st.video(youtube_music_url, autoplay=True)
+    st.markdown("### ⏳ Contador do Nosso Amor")
+    col1, col2, col3 = st.columns(3)
+    col1.metric("Dias", f"{dias} dias")
+    col2.metric("Horas", f"{horas} hrs")
+    col3.metric("Minutos", f"{minutos} min")
 
-st.divider()
+    st.divider()
 
-# --- GALERIA COM AS 50 FOTOS ---
-st.markdown("### 📸 Nossa História em Fotos")
+    # --- MÚSICA TEMA (JÁ COMEÇA TOCANDO AO ENTRAR) ---
+    st.markdown("### 🎵 Nossa Trilha Sonora: Te Vivo - Luan Santana")
+    youtube_music_url = "https://www.youtube.com/watch?v=dWpGsK8Md28" 
+    st.video(youtube_music_url, autoplay=True)
 
-frases = [
-    "O início de tudo ❤️", "Nossos momentos inesquecíveis!", "Cada dia mais juntos.", "Sorrisos que amo!", 
-    "Mais um momento especial ao seu lado.", "Te amo cada dia mais!", "Parabéns para nós! ❤️", "O seu abraço é o meu lugar favorito.", 
-    "Com você, tudo fica mais leve.", "Memórias que vou guardar para sempre.", "Amo tudo em você!", "O melhor presente foi te encontrar.", 
-    "O meu sorriso favorito do mundo.", "Que a gente continue assim, bem juntinhos.", "Sempre ao seu lado ❤️", "Cada detalhe seu me encanta.", 
-    "Você transforma meus dias.", "Amor sem fim!", "Sempre com você no meu coração.", "O destino acertou em cheio ao nos juntar.", 
-    "Momentos simples que valem ouro.", "O meu porto seguro.", "Ao seu lado o tempo voa.", "Minha melhor companhia.", 
-    "Construindo nossa história dia após dia.", "Eu te amo infinitamente! ❤️", "Cada segundo com você é especial.", "Meu porto seguro.", 
-    "Nossa sintonia é única.", "Lugar favorito: abraçado(a) com você.", "Você é a melhor parte do meu dia.", "Sempre nós.", 
-    "Risadas garantidas ao seu lado.", "Amor que não cabe no peito.", "Meu bem mais precioso.", "Coração acelerado só de te ver.", 
-    "Companheiro(a) de todas as horas.", "A vida é mais bonita com você.", "Nossa cumplicidade é tudo.", "Florescendo juntos.", 
-    "Te escolheria em todas as vidas.", "Tão bom viver isso com você.", "Olhar que me acalma.", "Nossas memórias favoritas.", 
-    "Você é meu lar.", "Cada detalhe seu me faz suspirar.", "Meu amor maior.", "Tudo faz sentido com você.", 
-    "Para sempre ao seu lado.", "Nosso amor é a minha história favorita! ❤️"
-]
+    st.divider()
 
-total_fotos = 50
-for i in range(1, total_fotos + 1, 2):
-    c1, c2 = st.columns(2)
-    with c1:
-        carregar_imagem(f"foto{i}.jpg", frases[i-1])
-    if i + 1 <= total_fotos:
-        with c2:
-            carregar_imagem(f"foto{i+1}.jpg", frases[i])
+    # --- GALERIA COM AS 50 FOTOS ---
+    st.markdown("### 📸 Nossa História em Fotos")
 
-st.divider()
+    frases = [
+        "O início de tudo ❤️", "Nossos momentos inesquecíveis!", "Cada dia mais juntos.", "Sorrisos que amo!", 
+        "Mais um momento especial ao seu lado.", "Te amo cada dia mais!", "Parabéns para nós! ❤️", "O seu abraço é o meu lugar favorito.", 
+        "Com você, tudo fica mais leve.", "Memórias que vou guardar para sempre.", "Amo tudo em você!", "O melhor presente foi te encontrar.", 
+        "O meu sorriso favorito do mundo.", "Que a gente continue assim, bem juntinhos.", "Sempre ao seu lado ❤️", "Cada detalhe seu me encanta.", 
+        "Você transforma meus dias.", "Amor sem fim!", "Sempre com você no meu coração.", "O destino acertou em cheio ao nos juntar.", 
+        "Momentos simples que valem ouro.", "O meu porto seguro.", "Ao seu lado o tempo voa.", "Minha melhor companhia.", 
+        "Construindo nossa história dia após dia.", "Eu te amo infinitamente! ❤️", "Cada segundo com você é especial.", "Meu porto seguro.", 
+        "Nossa sintonia é única.", "Lugar favorito: abraçado(a) com você.", "Você é a melhor parte do meu dia.", "Sempre nós.", 
+        "Risadas garantidas ao seu lado.", "Amor que não cabe no peito.", "Meu bem mais precioso.", "Coração acelerado só de te ver.", 
+        "Companheiro(a) de todas as horas.", "A vida é mais bonita com você.", "Nossa cumplicidade é tudo.", "Florescendo juntos.", 
+        "Te escolheria em todas as vidas.", "Tão bom viver isso com você.", "Olhar que me acalma.", "Nossas memórias favoritas.", 
+        "Você é meu lar.", "Cada detalhe seu me faz suspirar.", "Meu amor maior.", "Tudo faz sentido com você.", 
+        "Para sempre ao seu lado.", "Nosso amor é a minha história favorita! ❤️"
+    ]
 
-# --- CARTA DE AMOR ---
-st.markdown("### 💌 Uma mensagem para você")
+    total_fotos = 50
+    for i in range(1, total_fotos + 1, 2):
+        c1, c2 = st.columns(2)
+        with c1:
+            carregar_imagem(f"foto{i}.jpg", frases[i-1])
+        if i + 1 <= total_fotos:
+            with c2:
+                carregar_imagem(f"foto{i+1}.jpg", frases[i])
 
-st.write("""
-Estes 7 meses ao seu lado foram os mais incríveis da minha vida. Obrigado por cada sorriso, 
-cada abraço e por tornar meus dias muito mais felizes. 
+    st.divider()
 
-A gente não precisa tá colado pra tá junto! Que venham muitos e muitos outros meses e anos ao seu lado! ❤️
-""")
+    # --- CARTA DE AMOR ---
+    st.markdown("### 💌 Uma mensagem para você")
 
-st.divider()
+    st.write("""
+    Estes 7 meses ao seu lado foram os mais incríveis da minha vida. Obrigado por cada sorriso, 
+    cada abraço e por tornar meus dias muito mais felizes. 
 
-# --- VÍDEO NO FINAL COM TEXTO ESPECIAL ---
-st.markdown("### 🎥 Um Vídeo Especial Para Você")
+    A gente não precisa tá colado pra tá junto! Que venham muitos e muitos outros meses e anos ao seu lado! ❤️
+    """)
 
-st.write("""
-Lembro como se fosse hoje... da nossa primeira mensagem no celular, do frio na barriga antes de nos encontrarmos, 
-do nosso primeiro abraço apertado e daquele nosso primeiro beijo inesquecível que mudou tudo. 
+    st.divider()
 
-Parece que foi ontem que a nossa história começou, mas ao mesmo tempo sinto que te conheço de outras vidas. 
-Cada segundo ao seu lado fez esses 7 meses parecerem um sonho perfeito.
-Sete meses se passaram desde aquele dia que mudou tudo. Ainda me lembro do meu coração batendo forte. 
-Desde então, o tempo voou e cada dia ao seu lado virou uma aventura nova. 
-Obrigado por me fazer tão feliz e por ser essa pessoa incrível.
-Que venham muitos outros meses e anos juntos. Eu te amo! 
-Dê o play abaixo e relembre um pouquinho de nós! ❤️
-""")
+    # --- VÍDEO NO FINAL COM TEXTO ESPECIAL ---
+    st.markdown("### 🎥 Um Vídeo Especial Para Você")
 
-carregar_video_final("nosso_video.mp4")
+    st.write("""
+    Lembro como se fosse hoje... da nossa primeira mensagem no celular, do frio na barriga antes de nos encontrarmos, 
+    do nosso primeiro abraço apertado e daquele nosso primeiro beijo inesquecível que mudou tudo. 
 
-st.divider()
+    Parece que foi ontem que a nossa história começou, mas ao mesmo tempo sinto que te conheço de outras vidas. 
+    Cada segundo ao seu lado fez esses 7 meses parecerem um sonho perfeito.
+    Sete meses se passaram desde aquele dia que mudou tudo. Ainda me lembro do meu coração batendo forte. 
+    Desde então, o tempo voou e cada dia ao seu lado virou uma aventura nova. 
+    Obrigado por me fazer tão feliz e por ser essa pessoa incrível.
+    Que venham muitos outros meses e anos juntos. Eu te amo! 
+    Dê o play abaixo e relembre um pouquinho de nós! ❤️
+    """)
 
-# --- SURPRESA ---
-if st.button("Clique aqui para uma surpresa! 🎁"):
-    st.balloons()
-    st.success("Eu te amo infinitamente! Obrigado por estes 7 meses incríveis! 🥰❤️")
+    carregar_video_final("nosso_video.mp4")
+
+    st.divider()
+
+    # --- SURPRESA ---
+    if st.button("Clique aqui para uma surpresa! 🎁"):
+        st.balloons()
+        st.success("Eu te amo infinitamente! Obrigado por estes 7 meses incríveis! 🥰❤️")
