@@ -170,12 +170,15 @@ else:
     st.write("""
     Hoje a gente completa 8 meses juntos, e olhar pra trás me faz ter certeza de como a vida é incrível.
 
-    Tudo começou do nada... Eu vi uma foto sua no Instagram, achei a menina mais linda e perfeita do mundo — uma verdadeira princesa — e decidi te seguir. Tomei coragem, mandei a primeira mensagem tentando puxar assunto e, quando vi, já estava completamente apaixonado por você.
+    Tudo começou meio sem querer, de repente... Eu vi uma foto sua no Instagram, achei a menina mais linda e perfeita do mundo — uma verdadeira princesa — e tomei coragem pra te seguir e mandar aquela primeira mensagem tentando puxar assunto. Quem diria que aquele papo bobo de internet se transformaria na melhor escolha da minha vida?
 
-    Aquele papo bobo de internet se transformou na melhor escolha da minha vida. Nesses 8 meses, cada momento ao seu lado só me dá mais certeza do quanto eu te amo e do quanto você me faz bem.
+    Foi como na música "Meteoro": você chegou de repente, como um raio de luz, e me conquistou por inteiro. Naquele momento, eu já estava completamente apaixonado.
 
-    Obrigado por ser essa namorada maravilhosa, companheira e por ser a minha Fofuxa. Que venham muitos e muitos meses (e anos!) juntos. Eu amo você! ❤️✨
-    """)
+    Nesses 8 meses, cada instante do seu lado só reafirma o quanto eu te amo. Hoje eu sei que você é o meu "Destino" e que o nosso encontro não foi por acaso. 
+    
+    Você é aquela minha "Morena" (ou "Princesa") que traz paz pro meu dia, a companheira perfeita e a minha eterna Fofuxa. Como diz o Luan em "Tudo o Que Você Quiser": “Eu cometo os erros que for / Para ter o seu amor / Te dei o meu mundo e você deu o seu”. E é exatamente assim que eu me sinto: daria o meu mundo inteiro pra ver você sorrir.
+
+    Obrigado por ser essa namorada maravilhosa e tão especial. Que venham muitos e muitos meses — e anos! — ao seu lado. Eu amo você! ❤️✨""")
 
     st.divider()
 
