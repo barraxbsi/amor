@@ -180,19 +180,33 @@ else:
     st.divider()
 
     # --- MÚSICA TEMA LOGO NO TOPO ---
-    st.markdown("### 🎵 Nossa Trilha Sonora: Te Vivo - Luan Santana")
+    st.markdown("### 🎵 Luan Santana - METEORO")
     st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
-    youtube_music_url = "https://www.youtube.com/watch?v=dWpGsK8Md28" 
+    youtube_music_url = "https://youtu.be/A8iwQscRxDY?si=jYx_yeguY1e3iyQZ" 
     st.video(youtube_music_url)
     
     # --- MÚSICA TEMA LOGO NO TOPO 2  ---
 
-    st.markdown("### 🎵 Luan Santana - AMAR NÃO É PECADO ")
+    st.markdown("### 🎵 Luan Santana - MEU DESTINO ")
     st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
-    youtube_music_url = "https://youtu.be/iyKRz-6U4Xw?si=hRgPnXU5jzKcQBwy" 
+    youtube_music_url = "https://youtu.be/fziTdh7aELA?si=ngtz9J37D2LkXV2S" 
     st.video(youtube_music_url)
 
-     # --- MÚSICA TEMA LOGO NO TOPO 2  ---
+ # --- MÚSICA TEMA LOGO NO TOPO 3 ---
+    
+    st.markdown("### 🎵 Luan Santana - MORENA  ")
+    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
+    youtube_music_url = "https://youtu.be/ZIiQ1jMqhVM?si=aHAcmZiL6Z-Jr0jE" 
+    st.video(youtube_music_url)
+
+  # --- MÚSICA TEMA LOGO NO TOPO 4  ---
+    
+    st.markdown("### 🎵 Luan Santana - Tudo Que Você Quiser (O Nosso Tempo É Hoje - Vídeo Oficial)")
+    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
+    youtube_music_url = "https://youtu.be/-YzDsDMYqdw?si=2RvzyB_8FQlKxSmP" 
+    st.video(youtube_music_url)
+
+     # --- MÚSICA TEMA LOGO NO TOPO 5  ---
     
     st.markdown("### 🎵 Luan Santana - INCONDICIONAL  ")
     st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
