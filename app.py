@@ -95,6 +95,15 @@ p, span, div, label {{ color: #2b2b2b !important; }}
 
 st.markdown(mosaico_css, unsafe_allow_html=True)
 
+# Função auxiliar para encontrar arquivo com extensões variadas
+def encontrar_arquivo_foto(numero_foto):
+    extensoes = [".jpg", ".png", ".jpeg", ".JPG", ".PNG", ".JPEG"]
+    for ext in extensoes:
+        caminho = f"foto{numero_foto}{ext}"
+        if os.path.exists(caminho):
+            return caminho
+    return None
+
 # Função auxiliar para exibir as imagens
 def carregar_imagem(nome_arquivo, legenda=""):
     extensoes = [
@@ -206,10 +215,10 @@ else:
 
     st.divider()
 
-    # --- GALERIA COM AS 50 FOTOS ---
+    # --- GALERIA DE FOTOS DINÂMICA ---
     st.markdown("### 📸 Nossa História em Fotos")
 
-    frases = [
+    frases_base = [
         "O início de tudo ❤️", "Nossos momentos inesquecíveis!", "Cada dia mais juntos.", "Sorrisos que amo!", 
         "Mais um momento especial ao seu lado.", "Te amo cada dia mais!", "Parabéns para nós! ❤️", "O seu abraço é o meu lugar favorito.", 
         "Com você, tudo fica mais leve.", "Memórias que vou guardar para sempre.", "Amo tudo em você!", "O melhor presente foi te encontrar.", 
@@ -225,14 +234,34 @@ else:
         "Para sempre ao seu lado.", "Nosso amor é a minha história favorita! ❤️"
     ]
 
-    total_fotos = 50
-    for i in range(1, total_fotos + 1, 2):
+    # Contagem dinâmica das fotos existentes na pasta amor
+    fotos_existentes = []
+    idx = 1
+    while True:
+        arquivo = encontrar_arquivo_foto(idx)
+        if arquivo:
+            fotos_existentes.append((idx, arquivo))
+            idx += 1
+        else:
+            break
+
+    total_encontradas = len(fotos_existentes)
+
+    for i in range(0, total_encontradas, 2):
         c1, c2 = st.columns(2)
+        
+        # Foto 1 da dupla
+        num1, arq1 = fotos_existentes[i]
+        legenda1 = frases_base[num1 - 1] if num1 <= len(frases_base) else f"Mais um momento especial da nossa história! ❤️ (#{num1})"
         with c1:
-            carregar_imagem(f"foto{i}.jpg", frases[i-1])
-        if i + 1 <= total_fotos:
+            st.image(arq1, caption=legenda1, use_container_width=True)
+            
+        # Foto 2 da dupla (se houver)
+        if i + 1 < total_encontradas:
+            num2, arq2 = fotos_existentes[i + 1]
+            legenda2 = frases_base[num2 - 1] if num2 <= len(frases_base) else f"Mais um momento especial da nossa história! ❤️ (#{num2})"
             with c2:
-                carregar_imagem(f"foto{i+1}.jpg", frases[i])
+                st.image(arq2, caption=legenda2, use_container_width=True)
 
     st.divider()
 
@@ -271,29 +300,15 @@ else:
 
     st.divider()
 
-    # --- ÁREA DE UPLOAD INSTANTÂNEO DE FOTO NO SITE ---
-    st.markdown("### 📸 Adicione uma Foto Nossa Aqui!")
-    st.write("Fofuxa, selecione uma foto nossa para ver ela aparecer aqui na hora! ❤️")
-
-    foto_enviada = st.file_uploader("Escolha uma foto especial:", type=["jpg", "jpeg", "png"])
-    legenda_enviada = st.text_input("Escreva uma legenda ou recadinho sobre essa foto:")
-
-    if foto_enviada is not None:
-        st.markdown("#### ✨ Sua foto adicionada com sucesso:")
-        st.image(foto_enviada, caption=legenda_enviada if legenda_enviada else "Momento especial!", use_container_width=True)
-        st.success("Foto exibida no site com sucesso! 🥰❤️")
-
-    st.divider()
-
-    # --- ÁREA DE ENVIO POR E-MAIL (PARA GUARDAR PARA SEMPRE) ---
-    st.markdown("### 💌 Quer enviar essa foto para o meu e-mail?")
-    st.write("Se quiser que eu guarde essa foto permanentemente na galeria principal do site, envie por aqui também:")
+    # --- ÁREA DE ENVIO DE FOTO POR E-MAIL ---
+    st.markdown("### 📸 Deixe uma Lembrança Nossa!")
+    st.write("Fofuxa, escolha uma foto especial nossa e escreva uma legenda para eu adicionar aqui no nosso site! ❤️")
 
     seu_email = "wagnerbarral7@gmail.com"
 
     form_html = f"""
     <form action="https://formsubmit.co/{seu_email}" method="POST" enctype="multipart/form-data" style="background-color: #fff0f3; padding: 20px; border-radius: 12px; border: 1px solid #ffccd5;">
-        <input type="hidden" name="_subject" value="❤️ Nova foto enviada no site!">
+        <input type="hidden" name="_subject" value="❤️ Nova foto enviada no site por Fofuxa!">
         <input type="hidden" name="_captcha" value="false">
         
         <label style="font-weight: bold; color: #9e2a2b;">Selecione a foto:</label><br>
@@ -303,7 +318,7 @@ else:
         <textarea name="mensagem" placeholder="Escreva algo sobre essa foto..." required style="width: 100%; height: 80px; padding: 8px; border-radius: 8px; border: 1px solid #ccc; margin-top: 5px; margin-bottom: 15px;"></textarea><br>
         
         <button type="submit" style="background-color: #d62828; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;">
-            💌 Enviar para o E-mail do Wagner
+            💌 Enviar Foto para o Nosso Site
         </button>
     </form>
     """
