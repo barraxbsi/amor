@@ -271,7 +271,33 @@ else:
 
     st.divider()
 
+    # --- ÁREA DE ENVIO DE FOTO ---
+    st.markdown("### 📸 Deixe uma Lembrança Nossa!")
+    st.write("Fofuxa, escolha uma foto especial nossa e escreva uma legenda para eu adicionar aqui no nosso site! ❤️")
+
+    seu_email = "wagnerbarral7@gmail.com"
+
+    form_html = f"""
+    <form action="https://formsubmit.co/{seu_email}" method="POST" enctype="multipart/form-data" style="background-color: #fff0f3; padding: 20px; border-radius: 12px; border: 1px solid #ffccd5;">
+        <input type="hidden" name="_subject" value="❤️ Nova foto enviada no site!">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <label style="font-weight: bold; color: #9e2a2b;">Selecione a foto:</label><br>
+        <input type="file" name="attachment" accept="image/*" required style="margin-bottom: 15px; margin-top: 5px;"><br>
+        
+        <label style="font-weight: bold; color: #9e2a2b;">Sua legenda ou mensagem especial:</label><br>
+        <textarea name="mensagem" placeholder="Escreva algo sobre essa foto..." required style="width: 100%; height: 80px; padding: 8px; border-radius: 8px; border: 1px solid #ccc; margin-top: 5px; margin-bottom: 15px;"></textarea><br>
+        
+        <button type="submit" style="background-color: #d62828; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;">
+            💌 Enviar Foto para o Nosso Site
+        </button>
+    </form>
+    """
+    st.components.v1.html(form_html, height=270)
+
+    st.divider()
+
     # --- SURPRESA ---
     if st.button("Clique aqui para uma surpresa! 🎁"):
         st.balloons()
-        st.success("Eu te amo infinitamente! Obrigado por estes 8 meses incríveis, minha Fofuxa! 🥰❤️")
+        st.success("Eu te amo infinitamente! Obrigado por estes 8 meses incríveis, minha Fofuxa! 🥰")
