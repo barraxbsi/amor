@@ -271,9 +271,23 @@ else:
 
     st.divider()
 
-    # --- ÁREA DE ENVIO DE FOTO ---
-    st.markdown("### 📸 Deixe uma Lembrança Nossa!")
-    st.write("Fofuxa, escolha uma foto especial nossa e escreva uma legenda para eu adicionar aqui no nosso site! ❤️")
+    # --- ÁREA DE UPLOAD INSTANTÂNEO DE FOTO NO SITE ---
+    st.markdown("### 📸 Adicione uma Foto Nossa Aqui!")
+    st.write("Fofuxa, selecione uma foto nossa para ver ela aparecer aqui na hora! ❤️")
+
+    foto_enviada = st.file_uploader("Escolha uma foto especial:", type=["jpg", "jpeg", "png"])
+    legenda_enviada = st.text_input("Escreva uma legenda ou recadinho sobre essa foto:")
+
+    if foto_enviada is not None:
+        st.markdown("#### ✨ Sua foto adicionada com sucesso:")
+        st.image(foto_enviada, caption=legenda_enviada if legenda_enviada else "Momento especial!", use_container_width=True)
+        st.success("Foto exibida no site com sucesso! 🥰❤️")
+
+    st.divider()
+
+    # --- ÁREA DE ENVIO POR E-MAIL (PARA GUARDAR PARA SEMPRE) ---
+    st.markdown("### 💌 Quer enviar essa foto para o meu e-mail?")
+    st.write("Se quiser que eu guarde essa foto permanentemente na galeria principal do site, envie por aqui também:")
 
     seu_email = "wagnerbarral7@gmail.com"
 
@@ -289,7 +303,7 @@ else:
         <textarea name="mensagem" placeholder="Escreva algo sobre essa foto..." required style="width: 100%; height: 80px; padding: 8px; border-radius: 8px; border: 1px solid #ccc; margin-top: 5px; margin-bottom: 15px;"></textarea><br>
         
         <button type="submit" style="background-color: #d62828; color: white; padding: 10px 20px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;">
-            💌 Enviar Foto para o Nosso Site
+            💌 Enviar para o E-mail do Wagner
         </button>
     </form>
     """
@@ -300,4 +314,4 @@ else:
     # --- SURPRESA ---
     if st.button("Clique aqui para uma surpresa! 🎁"):
         st.balloons()
-        st.success("Eu te amo infinitamente! Obrigado por estes 8 meses incríveis, minha Fofuxa! 🥰")
+        st.success("Eu te amo infinitamente! Obrigado por estes 8 meses incríveis, minha Fofuxa! 🥰❤️")
