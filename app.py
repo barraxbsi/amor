@@ -5,7 +5,7 @@ import base64
 
 # Configuração da página
 st.set_page_config(
-    page_title="Nossos 7 Meses ❤️",
+    page_title="Nossos 8 Meses ❤️",
     page_icon="💖",
     layout="centered"
 )
@@ -159,9 +159,23 @@ if not st.session_state.entb:
 else:
     # --- SITE COMPLETO (APÓS CLICAR NO BOTÃO) ---
     
-    # Título
-    st.title("❤️ 7 Meses Juntos ❤️")
+    # Título Principal
+    st.title("❤️ Nossos 8 Meses Juntos ❤️")
     st.subheader("O melhor capítulo da minha vida!")
+
+    st.divider()
+
+    # --- TEXTO INICIAL DE ABERTURA ---
+    st.markdown("### 📜 Como Tudo Começou...")
+    st.write("""
+    Hoje a gente completa 8 meses juntos, e olhar pra trás me faz ter certeza de como a vida é incrível.
+
+    Tudo começou do nada... Eu vi uma foto sua no Instagram, achei a menina mais linda e perfeita do mundo — uma verdadeira princesa — e decidi te seguir. Tomei coragem, mandei a primeira mensagem tentando puxar assunto e, quando vi, já estava completamente apaixonado por você.
+
+    Aquele papo bobo de internet se transformou na melhor escolha da minha vida. Nesses 8 meses, cada momento ao seu lado só me dá mais certeza do quanto eu te amo e do quanto você me faz bem.
+
+    Obrigado por ser essa namorada maravilhosa, companheira e por ser a minha Fofuxa. Que venham muitos e muitos meses (e anos!) juntos. Eu amo você! ❤️✨
+    """)
 
     st.divider()
 
@@ -224,7 +238,7 @@ else:
     st.markdown("### 💌 Uma mensagem para você")
 
     st.write("""
-    Estes 7 meses ao seu lado foram os mais incríveis da minha vida. Obrigado por cada sorriso, 
+    Estes 8 meses ao seu lado foram os mais incríveis da minha vida. Obrigado por cada sorriso, 
     cada abraço e por tornar meus dias muito mais felizes. 
 
     A gente não precisa tá colado pra tá junto! Que venham muitos e muitos outros meses e anos ao seu lado! ❤️
@@ -240,8 +254,8 @@ else:
     do nosso primeiro abraço apertado e daquele nosso primeiro beijo inesquecível que mudou tudo. 
 
     Parece que foi ontem que a nossa história começou, mas ao mesmo tempo sinto que te conheço de outras vidas. 
-    Cada segundo ao seu lado fez esses 7 meses parecerem um sonho perfeito.
-    Sete meses se passaram desde aquele dia que mudou tudo. Ainda me lembro do meu coração batendo forte. 
+    Cada segundo ao seu lado fez esses 8 meses parecerem um sonho perfeito.
+    Oitoss meses se passaram desde aquele dia que mudou tudo. Ainda me lembro do meu coração batendo forte. 
     Desde então, o tempo voou e cada dia ao seu lado virou uma aventura nova. 
     Obrigado por me fazer tão feliz e por ser essa pessoa incrível.
     Que venham muitos outros meses e anos juntos. Eu te amo! 
@@ -255,4 +269,4 @@ else:
     # --- SURPRESA ---
     if st.button("Clique aqui para uma surpresa! 🎁"):
         st.balloons()
-        st.success("Eu te amo infinitamente! Obrigado por estes 7 meses incríveis! 🥰❤️")
+        st.success("Eu te amo infinitamente! Obrigado por estes 8 meses incríveis, minha Fofuxa! 🥰❤️")
