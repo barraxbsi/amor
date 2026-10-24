@@ -121,24 +121,10 @@ def carregar_imagem(nome_arquivo, legenda=""):
 
 # Função auxiliar para carregar vídeo local
 def carregar_video_final(nome_arquivo):
-    extensoes = [
-        nome_arquivo,
-        "nosso_video.mp4",
-        "nosso_video.mov",
-        "nosso_video.avi",
-        "nosso_video.mkv",
-        "nosso_video.MP4"
-    ]
-    encontrado = None
-    for ext in extensoes:
-        if os.path.exists(ext):
-            encontrado = ext
-            break
-            
-    if encontrado:
-        st.video(encontrado)
+    if os.path.exists(nome_arquivo):
+        st.video(nome_arquivo)
     else:
-        st.info(f"💡 Para exibir seu vídeo no final, adicione o arquivo **'{nome_arquivo}'** (ou **nosso_video.mp4**) na pasta 'amor'.")
+        st.info(f"💡 Para exibir o vídeo, adicione o arquivo **'{nome_arquivo}'** na pasta 'amor'.")
 
 
 # --- TELA INICIAL (CAPA COM BOTÃO) ---
@@ -182,39 +168,24 @@ else:
 
     st.divider()
 
-    # --- MÚSICA TEMA LOGO NO TOPO ---
-    st.markdown("### 🎵 Luan Santana - METEORO")
+    # --- MÚSICAS TEMA NO TOPO ---
+    st.markdown("### 🎵 Trilha Sonora do Nosso Amor")
     st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
-    youtube_music_url = "https://youtu.be/A8iwQscRxDY?si=jYx_yeguY1e3iyQZ" 
-    st.video(youtube_music_url)
-    
-    # --- MÚSICA TEMA LOGO NO TOPO 2  ---
 
-    st.markdown("### 🎵 Luan Santana - MEU DESTINO ")
-    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
-    youtube_music_url = "https://youtu.be/fziTdh7aELA?si=ngtz9J37D2LkXV2S" 
-    st.video(youtube_music_url)
+    st.markdown("#### 🌟 Luan Santana - METEORO")
+    st.video("https://youtu.be/A8iwQscRxDY?si=jYx_yeguY1e3iyQZ")
 
- # --- MÚSICA TEMA LOGO NO TOPO 3 ---
-    
-    st.markdown("### 🎵 Luan Santana - MORENA  ")
-    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
-    youtube_music_url = "https://youtu.be/ZIiQ1jMqhVM?si=aHAcmZiL6Z-Jr0jE" 
-    st.video(youtube_music_url)
+    st.markdown("#### 🌟 Luan Santana - MEU DESTINO")
+    st.video("https://youtu.be/fziTdh7aELA?si=ngtz9J37D2LkXV2S")
 
-  # --- MÚSICA TEMA LOGO NO TOPO 4  ---
-    
-    st.markdown("### 🎵 Luan Santana - Tudo Que Você Quiser (O Nosso Tempo É Hoje - Vídeo Oficial)")
-    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
-    youtube_music_url = "https://youtu.be/-YzDsDMYqdw?si=2RvzyB_8FQlKxSmP" 
-    st.video(youtube_music_url)
+    st.markdown("#### 🌟 Luan Santana - MORENA")
+    st.video("https://youtu.be/ZIiQ1jMqhVM?si=aHAcmZiL6Z-Jr0jE")
 
-     # --- MÚSICA TEMA LOGO NO TOPO 5  ---
-    
-    st.markdown("### 🎵 Luan Santana - INCONDICIONAL  ")
-    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
-    youtube_music_url = "https://youtu.be/oNiGxfh-Su0?si=y076X75_r6hD9O3I" 
-    st.video(youtube_music_url)
+    st.markdown("#### 🌟 Luan Santana - TUDO QUE VOCÊ QUISER")
+    st.video("https://youtu.be/-YzDsDMYqdw?si=2RvzyB_8FQlKxSmP")
+
+    st.markdown("#### 🌟 Luan Santana - INCONDICIONAL")
+    st.video("https://youtu.be/oNiGxfh-Su0?si=y076X75_r6hD9O3I")
 
     st.divider()
 
@@ -272,13 +243,13 @@ else:
     Estes 8 meses ao seu lado foram os mais incríveis da minha vida. Obrigado por cada sorriso, 
     cada abraço e por tornar meus dias muito mais felizes. 
 
-    A gente não precisa tá colado pra tá junto! AMAR NÃO É PECADO ,QUE SE DANE O MUNDO EU QUERO SÓ VOCÊ .Que venham muitos e muitos outros meses e anos ao seu lado! ❤️
+    A gente não precisa tá colado pra tá junto! AMAR NÃO É PECADO, QUE SE DANE O MUNDO, EU QUERO SÓ VOCÊ. Que venham muitos e muitos outros meses e anos ao seu lado! ❤️
     """)
 
     st.divider()
 
-    # --- VÍDEO NO FINAL COM TEXTO ESPECIAL ---
-    st.markdown("### 🎥 Um Vídeo Especial Para Você")
+    # --- VÍDEOS NO FINAL COM TEXTO ESPECIAL ---
+    st.markdown("### 🎥 Nossos Vídeos Especiais")
 
     st.write("""
     Lembro como se fosse hoje... da nossa primeira mensagem no celular, do frio na barriga antes de nos encontrarmos, 
@@ -286,7 +257,7 @@ else:
 
     Parece que foi ontem que a nossa história começou, mas ao mesmo tempo sinto que te conheço de outras vidas. 
     Cada segundo ao seu lado fez esses 8 meses parecerem um sonho perfeito.
-    Oitoss meses se passaram desde aquele dia que mudou tudo. Ainda me lembro do meu coração batendo forte. 
+    Oito meses se passaram desde aquele dia que mudou tudo. Ainda me lembro do meu coração batendo forte. 
     Desde então, o tempo voou e cada dia ao seu lado virou uma aventura nova. 
     Obrigado por me fazer tão feliz e por ser essa pessoa incrível.
     Que venham muitos outros meses e anos juntos. Eu te amo! 
@@ -294,6 +265,8 @@ else:
     """)
 
     carregar_video_final("nosso_video.mp4")
+    
+    st.markdown("<br>", unsafe_allow_html=True)
     carregar_video_final("Oito_meses_no_mesmo_caminho.mp4")
 
     st.divider()
