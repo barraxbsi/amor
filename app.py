@@ -184,6 +184,20 @@ else:
     st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
     youtube_music_url = "https://www.youtube.com/watch?v=dWpGsK8Md28" 
     st.video(youtube_music_url)
+    
+    # --- MÚSICA TEMA LOGO NO TOPO 2  ---
+
+    st.markdown("### 🎵 Luan Santana - AMAR NÃO É PECADO ")
+    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
+    youtube_music_url = "https://youtu.be/iyKRz-6U4Xw?si=hRgPnXU5jzKcQBwy" 
+    st.video(youtube_music_url)
+
+     # --- MÚSICA TEMA LOGO NO TOPO 2  ---
+    
+    st.markdown("### 🎵 Luan Santana - INCONDICIONAL  ")
+    st.write("Dê o play abaixo para embalar a nossa história enquanto você vê tudo por aqui! ❤️")
+    youtube_music_url = "https://youtu.be/oNiGxfh-Su0?si=y076X75_r6hD9O3I" 
+    st.video(youtube_music_url)
 
     st.divider()
 
@@ -241,7 +255,7 @@ else:
     Estes 8 meses ao seu lado foram os mais incríveis da minha vida. Obrigado por cada sorriso, 
     cada abraço e por tornar meus dias muito mais felizes. 
 
-    A gente não precisa tá colado pra tá junto! Que venham muitos e muitos outros meses e anos ao seu lado! ❤️
+    A gente não precisa tá colado pra tá junto! AMAR NÃO É PECADO ,QUE SE DANE O MUNDO EU QUERO SÓ VOCÊ .Que venham muitos e muitos outros meses e anos ao seu lado! ❤️
     """)
 
     st.divider()
